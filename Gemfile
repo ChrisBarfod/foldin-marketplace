@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
+# Use Puma as the server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -34,6 +34,15 @@ gem 'carrierwave', '~> 1.0'
 
 #Creates image thumbnail
 gem 'mini_magick'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+
+gem "figaro"
+
+gem "fog-aws"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

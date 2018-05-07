@@ -1,12 +1,9 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'All posts', products_path %>
- 
-<%= image_tag(@product.product_image.url, alt: 'Image') if @product.product_image? %>
- 
-<p><%= link_to 'Edit', edit_product_path(@product) %></p>
-
-<%= link_to(image_tag(@product.product_image.thumb.url, alt: 'Image'), @product.product_image.url, target: '_blank') if @product.product_image? %>
+<p>
+  <%= link_to(image_tag(@product.product_image.thumb.url, alt: 'Image'), @product.product_image.url, target: '_blank') if @product.product_image? %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -35,3 +32,4 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+</div>
