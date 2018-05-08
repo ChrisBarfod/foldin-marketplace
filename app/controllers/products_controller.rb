@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        UserNotifierMailer.send_signup_email.deliver
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
