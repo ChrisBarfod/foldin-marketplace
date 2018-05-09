@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  before_action :set_item
   def new
   end
     
