@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+categories = Category.create([{ name:'Solid Color'}, { name: 'Chiyogami'}, { name: 'Prints/Patterned'}, { name: 'Books'}, { name: 'Sculptures'}])
+Product.all.each do |product|
+    product.category = categories.sample
+    product.save!
+end

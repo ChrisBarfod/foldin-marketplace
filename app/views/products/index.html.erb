@@ -3,6 +3,16 @@
 
 <h1>Products</h1>
 
+
+<%= form_tag(products_path, method: "get") do %>
+  <% Category.all.each do |category| %>
+    <% checked = params[:category_ids].include? category.id.to_s %>
+    <%= check_box_tag('category_ids[]', category.id, checked) %>
+    <%= category.name %>
+  <% end %>
+    <%= submit_tag("Search") %>
+<% end %>
+
 <table class=table>
   <thead>
     <tr>
