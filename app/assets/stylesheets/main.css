@@ -5,7 +5,7 @@ h1 {
     font-size: 250%;
 }
 
-h2 h3 h4 h5 body {
+h2, h3, h4, h5, body {
     font-family: 'Libre Franklin', sans-serif;
 }
 
@@ -21,11 +21,10 @@ h2 h3 h4 h5 body {
     font-family: 'Iceland', cursive;
     color: #4F4F4F;
     font-size: 110%;
-
 }
 
 .navbar a:hover {
-    color: #FF9F1C
+    color: #FF9F1C;
 }
 
 .display-inline {
@@ -37,8 +36,73 @@ h2 h3 h4 h5 body {
     padding: 20px; 
 }
 
+
+.form-group {
+    /* margin: 50px; */
+    border-radius: 0%;  
+    border: 0px;
+    /* max-width: 50%; */
+}
+
+.form-control {
+   padding: 10px; 
+   border-radius: 0px;
+   margin-left:10px;
+   max-width: 70%;
+}
+
+.form-page {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.form-heading {
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.edit-profile {
+    padding: 20px;
+}
+
+.edit-heading {
+    padding: 20px;
+}
+
+.actions {
+    padding: 10px;
+}
+
+.card-img-top {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.btn {
+    border-radius: 0;
+    background: #00BFD8;
+    color: #fff;
+}
+
+.btn a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #FF9F1C;
+}
+
+ /* Mobile Friendly */
 @media only screen and (max-width: 600px) {
     .filter {
         display: none;
     }
+    .form-control {
+        padding: 10px; 
+        border-radius: 0px;
+        margin-left:10%;
+        max-width: 80%;
+     }
 }

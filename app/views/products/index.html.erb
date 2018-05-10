@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light pt-1 pb-0">
+<nav class="navbar navbar-expand-lg navbar-light bg-light pt-1 pb-0">
   <a class="navbar-brand" href="#">
     <svg class="display-inline" width="44" height="43" viewBox="0 0 44 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <image width="44" height="43" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMASURBVHgB1ZhPbtNAFMa/l0aq2GWJ1Eh4RbtAIpygjjgAuUGT3oATkHKCljWQhAvgcAFPT5AsEKUrsqASu2YBgkXI8MZ20tiZOP4zTs1PclNlbPfr52/ePA9gEvf6BO6VhQIhmMIXOuJbToDfTTSfTVEAFRiDenzU+JcG8MCFO6qhAMwIdq9f8U975ZvCROcX7EVBdjUjSvRHGMaAw+TGDNpwv/ZgkHyC/ShYW85qmxSdvUp4UaBvKa7oo3nUQU5yOBwbBR3t4InkIpvgZFHQwJMzp+j0kUgfBd2f7aJ5eIYMpHPYq6upo6Ahu9PV5S16dV5WMYGUDujvJXV+TNZP328jUxR0eKKR1ullJFiwjIwJPhweYfE34+W3fs9g86Uv+LOF3KSLR5zgFeSE0yP4c0Cd7yI05H5pQVILRMfI6v4cL/H86DzJqeSLtTibs1skQ3VhQhsd93MD870WKp77DaShQm0cHw62nRYIfmhxnLPOfAEvOrNhWPwyOicIN0abSSA6EHzAbtAIueHoSBryXZ1QdLzqsm8nis4W0YHguq1uC7NwdMiBnAvQL3Z/etfQu1c25pKjU1HiI9EhdR2/ADweY8eCo6jc99dzr4vOZtGLSLT9N4adMYbE5ZboPOV8dKKi70vwCouSORvyu6AIR4erTvOJRvC7epcX6dydlCH00QmoonzYHAdbSeO5tRYd3+H3B/wfeaEvMapkoltGh6NMOSIDtrZPpzdjXzDRI5QPAW8F/Tmg07uJWDaHAzfJWWuyAhaCC9mlSYGAxk0dgWBZM7nNlhC/6wMuNrmpIxBMu3RYCb1gN89Di0RCSKpdpv5bieIRfJylcVMHyT437zJx856WXG7q4OXkT62AYiFgwE0drHTPVH4DN6UTemk1TNXAhBNYlCRDjz2OLFlQE1QV+A9xBb4oWLC0EtZgJVTwMUxS4IsiicO3wXI53LWbOqqYk6XZYVNuqonzyStJ9+SmjqjDi8f+ugxu6qjy0sGtJamF443JAl8Y/q7P/8M/S71KeFc0u4sAAAAASUVORK5CYII="/></svg>
@@ -6,19 +6,24 @@
     <h1 class="display-inline">Foldin</h1>
   </a>
   
-  <ul class="nav navbar-right align-items-center">
-    <% if user_signed_in? %>
-      <a class="nav-link"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
-      <a class="nav-link" href="<%= edit_user_registration_path %>">Edit Profile</a> 
-      <a class="nav-link" href="<%= new_product_path %>">New Product</a>      
-    <% else %>
-      <a class="nav-link" href="<%= new_user_registration_path %>"> Sign Up </a>
-      <a class="nav-link" href="<%= new_user_session_path %>"> Sign In </a>
-    <% end %>
-  </ul>
+  <button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#navbarText" href="#navbortext" aria-expanded="false" aria-controls="navbarText" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="nav navbar-right align-items-center ml-auto align-right">
+      <% if user_signed_in? %>
+        <a class="nav-link"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
+        <a class="nav-link" href="<%= edit_user_registration_path %>">Edit Profile</a> 
+        <a class="nav-link" href="<%= new_product_path %>">New Product</a>      
+      <% else %>
+        <a class="nav-link" href="<%= new_user_registration_path %>"> Sign Up </a>
+        <a class="nav-link" href="<%= new_user_session_path %>"> Sign In </a>
+      <% end %>
+    </ul>
+  </div>
 </nav>
 
-<p id="notice"><%= notice %></p>
 
 <div class="container-fluid">
   <p id="notice"><%= notice %></p>
@@ -46,7 +51,7 @@
             <% @products.each do |product| %>
               <div class="col-md-6 col-xl-4 mb-5">
                 <div class="card" style="width: 18rem;">    
-                  <div class="card-img-top text-center mt-3"><a href="/products/ <%= product.id %>"><%= image_tag(product.product_image.small_thumb.url, alt: 'Image') if product.product_image? %></a></div>
+                  <div class="card-img-top text-center"><a href="/products/ <%= product.id %>"><%= image_tag(product.product_image.small_thumb.url, alt: 'Image') if product.product_image? %></a></div>
  
 
                   <div class="card-body">
