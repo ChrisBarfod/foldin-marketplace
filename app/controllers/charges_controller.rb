@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-  before_action :set_item
+  before_action :set_items
   def new
   end
     
@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
   
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to root_path
+    redirect_to new_charge_path
   end
   private
   def set_item

@@ -10,4 +10,4 @@ class UsersController < ApplicationController
             render :action => 'new'
         end
     end
-  end
+end
