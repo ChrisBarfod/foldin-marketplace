@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-categories = Category.create([{ name:'Solid Color'}, { name: 'Chiyogami'}, { name: 'Prints/Patterned'}, { name: 'Books'}, { name: 'Sculptures'}])
+categories = Category.create([{ name:'Solid Color'}, { name: 'Chiyogami'}, { name: 'Prints/Patterned'}, { name: 'Books'}, { name: 'Sculpture'}])
 Product.all.each do |product|
     product.category = categories.sample
     product.save!

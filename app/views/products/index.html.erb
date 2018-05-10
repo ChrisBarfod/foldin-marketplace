@@ -1,13 +1,38 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Bootstrap
+  </a>
+  
+  <ul class="nav navbar-right">
+    <% if user_signed_in? %>
+      <a class="nav-link" ><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
+
+      <a class="nav-link" href="<%= edit_user_registration_path %>"> Profile </a> 
+      <a class="nav-link" href="<%= new_product_path %>"> New Product </a>      
+    <% else %>
+      <a class="nav-link" href="<%= new_user_registration_path %>"> Sign Up </a>
+      <a class="nav-link" href="<%= new_user_session_path %>"> Sign In </a>
+    <% end %>
+  </ul>
+</nav>
+
+
+
 <div class="container">
 <p id="notice"><%= notice %></p>
+
 
 <h1>Products</h1>
 
 
 <%= form_tag(products_path, method: "get") do %>
   <% Category.all.each do |category| %>
+  <% unless params[:category_ids].nil? %>
     <% checked = params[:category_ids].include? category.id.to_s %>
+    <% end %>   
     <%= check_box_tag('category_ids[]', category.id, checked) %>
+   
     <%= category.name %>
   <% end %>
     <%= submit_tag("Search") %>
@@ -18,10 +43,8 @@
     <tr>
       <th>Image</th>    
       <th>Name</th>
-      <th>Description</th>
       <th>Price</th>
-      <th>Postage</th>
-      <th>Catagories</th>
+      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,10 +54,8 @@
       <tr>
         <td><%= image_tag(product.product_image.small_thumb.url, alt: 'Image') if product.product_image? %></td>
         <td><%= product.name %></td>
-        <td><%= product.description %></td>
         <td><%= product.price %></td>
-        <td><%= product.postage %></td>
-        <td><%= product.catagories %></td>
+        <td><%= product.category.name %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -45,5 +66,31 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
 </div>
+
+<div class="container-fluid">
+    <p id="notice"><%= notice %></p>
+      <h1 class="recently-added">Recently Added</h1>
+        <div class="col">
+          <div class="row">
+            <% @products.each do |product| %>
+              <div class="col-3">
+                <div class="card" style="width: 18rem;">    
+                  <div class="card-img-top"><%= image_tag(product.product_image.small_thumb.url, alt: 'Image') if product.product_image? %></div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      <h4><li class="list-group-item"><%= product.name %></li></h4>
+                      <h5><li class="list-group-item"><%= product.price %></li></h5>
+                        <div class="card-text">
+                        <li class="list-group-item"><%= product.category.name %></li>
+                      </div>
+                      <div class="btn search-button"><%= link_to 'Show', product %></div>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+  </div>

@@ -36,9 +36,12 @@
     <%= form.number_field :postage, id: :product_postage %>
   </div>
 
-  <div class="field">
-    <%= form.label :catagories %>
-    <%= form.text_field :catagories, id: :product_catagories %>
+  <div class="field">                 
+    <p>Category</p>
+      <% Category.all.each do |category| %>
+      <%= form.label(:category_id, category.name )  %>
+      <%= form.radio_button(:category_id , category.id ) %>
+    <% end %>
   </div>
 
   <div class="actions">
