@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Iceland|Libre+Franklin');
+
+h1 {
+    font-family: 'Iceland', cursive;
+    font-size: 250%;
+}
+
+h2 h3 h4 h5 body {
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.navbar, .navbar-expand-lg, .navbar-light, .bg-light {
+    background: #222;
+    color: #F4F4F4;
+    padding: 15px;
+    border-bottom: 5px solid #00BFD8;
+    margin-top: -15px;
+}
+
+.navbar a {
+    font-family: 'Iceland', cursive;
+    color: #4F4F4F;
+    font-size: 110%;
+
+}
+
+.navbar a:hover {
+    color: #FF9F1C
+}
+
+.display-inline {
+    display: inline;
+}
+
+.filter {
+    background: #F4F4F4;
+    padding: 20px; 
+}
+
+@media only screen and (max-width: 600px) {
+    .filter {
+        display: none;
+    }
+}

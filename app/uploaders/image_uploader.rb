@@ -35,11 +35,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Thumbnail resizer
   version :thumb do
-    process resize_to_fill: [350, 350]
+    process resize_to_fill: [400, 400]
   end
 
   version :small_thumb, from_version: :thumb do
-    process resize_to_fill: [100, 100]
+    process resize_to_fill: [250, 250]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
